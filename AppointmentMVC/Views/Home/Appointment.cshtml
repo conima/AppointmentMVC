@@ -1,0 +1,64 @@
+﻿@{
+    ViewBag.Title = "Create your appointment";
+}
+<hgroup class="title">
+    <h1>@ViewBag.Title</h1>
+</hgroup>
+<script type="text/javascript">
+    var checkDatePath = '@Url.Action("CheckDateAvailability", "Catalog")';
+    var setAppointmentPath = '@Url.Action("SetAppointment", "Catalog")';
+    var getMyAppointmentsPath = '@Url.Action("getMyAppointments", "Catalog")';
+    var deleteMyAppointmentsPath = '@Url.Action("deleteMyAppointment", "Catalog")';
+</script>
+<form method="post" action="">
+    <table>
+        <tr>
+            <td><h3>Desired day:</h3></td>
+            <td><input type="text" name="AppDate" class="AppDate" id="AppDate" readonly /></td>
+        </tr>
+        <tr>
+            <td><h3>Desired time:</h3></td>
+            <td>
+                <select id="AppTime">
+                    <option>
+                        &nbsp;
+                    </option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td><input type="submit" name="CreateApp" id="CreateApp" value="Create Appointment" /></td>
+        </tr>
+    </table>
+</form>
+<div id="message">&nbsp;</div>
+<hr />
+<div id="btnMyApp"><button class="btn" id="myAppoinments" type="button" title="My Appointments">My Appointments</button></div>
+<div class="AppTable">
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Time</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Previous Appointments</th>
+            <th>Cancelation</th>
+        </tr>
+    </table>
+</div>
+
+    <div id="divLoading" style="margin: 0px; padding: 0px; position: fixed; right: 0px;
+    top: 0px; width: 100%; height: 100%; background-color: #666666; z-index: 30001;
+    opacity: .8; filter: alpha(opacity=70); display: none">
+        <p style="position: absolute; top: 30%; left: 45%; color: White;">
+            Processing, please wait...<br />
+            <img src="/images/processing.gif">
+        </p>
+    </div>
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+        @Scripts.Render("~/bundles/jqueryui")
+        @Scripts.Render("~/bundles/scripts")
+        @Styles.Render("~/Content/themes/base/css")
+    }

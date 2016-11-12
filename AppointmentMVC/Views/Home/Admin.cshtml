@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Admin page";
+}
+<h2>@ViewBag.Title</h2>
+<h3>List of appointments</h3>
+<script type="text/javascript">
+    var getAppointmentPath = '@Url.Action("GetAppointments", "Catalog")';
+    var setDescriptionPath = '@Url.Action("SetDescription", "Catalog")';
+</script>
+<div id="appAdminDate">
+    <span style="font-size:1.2em; margin-right: 30px; font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-weight: 500;">Date:</span>
+    <span><input type="text" name="AppAdminDate" class="AppDate" id="AdminDate" readonly /></span>
+</div>
+
+<div class="AppTable">
+    <table>
+        <tr>
+            <th>Time</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Previous Appointments</th>
+            <th>Description</th>
+        </tr>
+    </table>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/scripts")
+    @Styles.Render("~/Content/themes/base/css")
+}
