@@ -25,6 +25,7 @@ namespace AppointmentMVC.Controllers
         }
 
         [Authorize(Users = "admin@test.com")]
+        // pass: a000000
         
         public ActionResult Admin()
         {
